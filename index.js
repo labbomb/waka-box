@@ -38,7 +38,7 @@ async function updateGist(stats) {
     const line = [
       trimRightStr(name, 10).padEnd(10),
       time.padEnd(14),
-      generateBarChart(percent, 21),
+      generateBarChart(percent, 15),
       String(percent.toFixed(1)).padStart(5) + "%"
     ];
 
@@ -54,7 +54,7 @@ async function updateGist(stats) {
       gist_id: gistId,
       files: {
         [filename]: {
-          filename: `📊 Weekly development breakdown`,
+          filename: `Coding Language`,
           content: lines.join("\n")
         }
       }
