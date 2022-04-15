@@ -1,5 +1,7 @@
 name: Update gist with WakaTime stats
 on:
+  push:
+      branches: master
   schedule:
     - cron: "0 */3 * * *"
   # Manual triggers with workflow_dispatch
@@ -9,8 +11,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
+      - name: Install
+        run: npm ci
       - name: Update gist
-        uses: labbomb/waka-box@master
+        run: node ./index.js
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           GIST_ID: ${{ secrets.GIST_ID }}
