@@ -46,7 +46,7 @@ async function updateGist(stats) {
   }
 
   if (lines.length == 0) return;
-
+  console.log('lines', lines)
   try {
     // Get original filename to update that same file
     const filename = Object.keys(gist.data.files)[0];
